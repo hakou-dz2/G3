@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">G3</string>
+    <string name="name">Name</string>
+    <string name="pass">Password</string>
+    <string name="reset"> click here to reset password</string>
+    <string name="login"> login</string>
+</resources>
