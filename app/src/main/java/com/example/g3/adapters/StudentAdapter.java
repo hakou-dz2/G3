@@ -1,5 +1,6 @@
 package com.example.g3.adapters;
 
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -22,7 +23,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
     @NonNull
     @Override
     public StudentViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = View.inflate(parent.getContext(), R.layout.student, null);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.student, parent, false);
         return new StudentViewHolder(view);
     }
 
