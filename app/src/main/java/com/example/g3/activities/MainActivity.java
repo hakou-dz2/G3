@@ -1,4 +1,4 @@
-package com.example.g3;
+package com.example.g3.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,11 +8,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
+import com.example.g3.R;
 
 public class MainActivity extends AppCompatActivity {
     EditText name, password;
@@ -44,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
                     }else{
                         if(n.equals("SI") && p.equals("1234")){
                             Intent intent = new Intent(MainActivity.this, Welcome.class);
+                            intent.putExtra("username",n);
                             startActivity(intent);
                         }else{
                             Toast.makeText(MainActivity.this, "name or password is wrong", Toast.LENGTH_SHORT).show();
