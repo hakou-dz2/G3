@@ -10,7 +10,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.g3.Databases.StudentDatabase;
 import com.example.g3.R;
+import com.example.g3.structure.Student;
 
 public class MainActivity extends AppCompatActivity {
     EditText name, password;
@@ -20,6 +22,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        new Thread(() -> {
+            for(int i = 0 ; i < 10; i++){
+                StudentDatabase.getInstance(this).stDao().insert(new Student("Student"+i,"Lastname"+i,"Group"+i));        }
+            StudentDatabase.getInstance(this).stDao().insert(new Student("SI","26","3"));
+    }).start();
+
+
+
+
         name = findViewById(R.id.et_name);
         password = findViewById(R.id.et_pass);
 

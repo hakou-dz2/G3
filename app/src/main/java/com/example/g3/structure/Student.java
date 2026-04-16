@@ -1,35 +1,72 @@
 package com.example.g3.structure;
 
-public class Student {
-    String Name, Lastname, Group;
 
+import androidx.room.Embedded;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
+@Entity
+public class Student {
+    @PrimaryKey(autoGenerate = true)
+    int id;
+
+    String name;
+    String lastname;
+    String group;
+    @Embedded(prefix = "add_")
+    Address address;
+
+    public Student(int id, String name, String lastname, String group) {
+        this.id = id;
+        this.name = name;
+        this.lastname = lastname;
+        this.group = group;
+    }
+@Ignore
     public Student(String name, String lastname, String group) {
-        Name = name;
-        Lastname = lastname;
-        Group = group;
+        this.name = name;
+        this.lastname = lastname;
+        this.group = group;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public String getLastname() {
-        return Lastname;
+        return lastname;
     }
 
     public void setLastname(String lastname) {
-        Lastname = lastname;
+        this.lastname = lastname;
     }
 
     public String getGroup() {
-        return Group;
+        return group;
     }
 
     public void setGroup(String group) {
-        Group = group;
+        this.group = group;
     }
 }
